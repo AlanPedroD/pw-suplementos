@@ -1,0 +1,117 @@
+/* ================= LOGIN ================= */
+
+body {
+
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+
+  background: #111;
+
+  color: #fff;
+
+  position: relative;
+
+}
+
+.login {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 20px;
+
+}
+
+.login-container {
+
+  width: 100%;
+
+  max-width: 400px;
+
+  background: #1b1b1b;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+}
+
+.login-container h1 {
+
+  text-align: center;
+
+  margin-bottom: 30px;
+
+}
+
+.login-form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+}
+
+.login-form input {
+
+  width: 100%;
+
+  height: 50px;
+
+  padding: 0 14px;
+
+  border: 1px solid #333;
+
+  border-radius: 8px;
+
+  background: #222;
+
+  color: #fff;
+
+  box-sizing: border-box;
+
+}
+
+.login-form button {
+
+  height: 50px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #00c851;
+
+  color: #fff;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+}
+
+/* ================= VOLTAR LOJA ================= */
+
+.back-store {
+
+  position: absolute;
+
+  top: 30px;
+
+  left: 30px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 15px;
+
+}

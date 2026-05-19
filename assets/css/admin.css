@@ -1,0 +1,392 @@
+/* ================= VARIÁVEIS ================= */
+:root {
+  --border:      #2a2e38;
+  --accent:      #00c851;
+  --accent-dim:  #009e3f;
+  --white:       #f5f5f0;
+  --muted:       #8a8f9e;
+  --dark-2:      #1a1d24;
+  --dark-3:      #22262f;
+  --danger:      #ff4444;
+  --radius:      8px;
+  --transition:  0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  /* --font-body:   "Poppins", sans-serif; */
+  --font-body:   "Mukta", sans-serif;
+  --font-body2:  "Didact Gothic", sans-serif;
+}
+
+/* ================= BASE ================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #111;
+  color: var(--white);
+}
+
+/* ================= ADMIN ================= */
+.admin {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+.admin-container {
+  width: 100%;
+  max-width: 600px;
+  background: #1b1b1b;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+/* ================= HEADER ADMIN ================= */
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.admin-header h1 {
+  font-size: 1.4rem;
+}
+
+.admin-header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ================= BOTÕES HEADER ================= */
+.logout-btn,
+.back-btn {
+  height: 42px;
+  padding: 0 18px;
+  border: none;
+  border-radius: var(--radius);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+
+.logout-btn { background: var(--danger); }
+.back-btn   { background: #333; }
+
+.logout-btn:hover,
+.back-btn:hover { opacity: 0.85; }
+
+/* ================= ABAS ================= */
+.admin-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-tab {
+  padding: 10px 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition);
+  margin-bottom: -1px;
+}
+
+.admin-tab:hover  { color: var(--white); }
+.admin-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ================= SEÇÕES ================= */
+.admin-section { animation: fadeIn 0.2s ease; }
+.admin-section.hidden { display: none; }
+
+.admin-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.admin-section-title:first-child { margin-top: 0; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= FORMULÁRIO PRODUTOS ================= */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #222;
+  color: var(--white);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus,
+.admin-form select:focus { border-color: var(--accent); }
+
+.admin-form select option { background: #222; }
+
+.admin-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.admin-form button {
+  height: 50px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.admin-form button:hover { background: var(--accent-dim); }
+
+/* ================= PREVIEW IMAGEM - PRODUTO ================= */
+.image-preview {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: none;
+  border: 1px solid var(--border);
+}
+
+/* ================= LISTA PRODUTOS ================= */
+.admin-products {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-product-card {
+  display: flex;
+  gap: 16px;
+  background: #222;
+  padding: 14px;
+  border-radius: var(--radius);
+  align-items: center;
+  border: 1px solid var(--border);
+}
+
+.admin-product-card img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.admin-product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-product-info h3 { font-size: 0.95rem; margin: 0; }
+.admin-product-info p  { font-size: 0.82rem; color: var(--muted); }
+.admin-product-info strong { font-size: 0.9rem; color: var(--accent); }
+
+.admin-product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.admin-product-actions button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--white);
+  transition: opacity var(--transition);
+}
+
+.admin-product-actions button:hover { opacity: 0.8; }
+.edit-btn   { background: #2a5caa; }
+.delete-btn { background: var(--danger); }
+
+/* ================= FORMULÁRIO BANNER ================= */
+.banner-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.banner-form input,
+.banner-form select {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #222;
+  color: var(--white);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.banner-form input:focus,
+.banner-form select:focus { border-color: var(--accent); }
+
+.banner-form select option { background: #222; }
+
+.file-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.file-label input[type="file"] {
+  color: var(--white);
+  font-size: 0.88rem;
+  border: 1px dashed var(--border);
+  padding: 10px;
+  border-radius: var(--radius);
+  background: #222;
+  cursor: pointer;
+}
+
+.banner-preview {
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: none;
+  border: 1px solid var(--border);
+}
+
+.banner-form button[type="submit"] {
+  height: 50px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition);
+  margin-top: 4px;
+}
+
+.banner-form button[type="submit"]:hover { background: var(--accent-dim); }
+
+/* ================= LISTA BANNERS ================= */
+.admin-banners {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-banner-card {
+  background: #222;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-banner-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.admin-banner-img-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-banner-img-wrap span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.admin-banner-img-wrap img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.edit-banner-btn   { background: #2a5caa; }
+.delete-banner-btn { background: var(--danger); }
+
+
+/* ================= PREÇO ANTIGO ================= */
+
+.old-price-wrapper {
+
+  display: none;
+
+}
+
+.badge-select {
+
+  width: 100%;
+
+  height: 50px;
+
+  padding: 0 14px;
+
+  border: 1px solid #333;
+
+  border-radius: 8px;
+
+  background: #222;
+
+  color: #fff;
+
+}

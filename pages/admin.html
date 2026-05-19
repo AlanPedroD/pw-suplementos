@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin</title>
+
+  <!-- Fontes  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Fonte 02 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+
+<body>
+
+  <main class="admin">
+    <div class="admin-container">
+
+      <div class="admin-header">
+        <h1>Painel Admin</h1>
+        <div class="admin-header-actions">
+          <button class="back-btn">Voltar à loja</button>
+          <button class="logout-btn">Sair</button>
+        </div>
+      </div>
+
+      <!-- ================= ABAS ================= -->
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="products">Produtos</button>
+        <button class="admin-tab" data-tab="banners">Banners</button>
+      </div>
+
+      <!-- ================= SEÇÃO PRODUTOS ================= -->
+      <section class="admin-section" id="tab-products">
+
+        <h2 class="admin-section-title">Adicionar / Editar Produto</h2>
+
+        <form class="admin-form">
+
+          <input type="text" name="name" placeholder="Nome do produto" required>
+
+          <select name="category" required>
+            <option value="">Categoria</option>
+            <option value="whey">Whey</option>
+            <option value="creatina">Creatina</option>
+            <option value="pre">Pré-treino</option>
+            <option value="vitaminas">Vitaminas</option>
+            <option value="kits">Kits</option>
+            <option value="barras">Barras</option>
+          </select>
+
+          <input type="number" name="price" placeholder="Preço" step="0.01" required>
+
+          <select name="badge" class="badge-select">
+
+            <option value="">
+              Sem badge
+            </option>
+
+            <option value="promo">
+              Promoção
+            </option>
+
+            <option value="novo">
+              Novo
+            </option>
+
+            <option value="destaque">
+              Destaque
+            </option>
+
+            <option value="mais-vendido">
+              Mais vendido
+            </option>
+
+          </select>
+
+          <div class="old-price-wrapper">
+
+            <input type="number" name="oldPrice" placeholder="Preço antigo" step="0.01">
+
+          </div>
+
+          <textarea name="description" placeholder="Descrição" required></textarea>
+
+          <label class="file-label">
+            Imagem do produto
+            <input type="file" name="image" class="image-input" accept="image/*">
+          </label>
+
+          <img class="image-preview" src="" alt="Preview">
+
+          <button type="submit">Salvar produto</button>
+
+        </form>
+
+        <h2 class="admin-section-title">Produtos cadastrados</h2>
+        <div class="admin-products"></div>
+
+      </section>
+
+      <!-- ================= SEÇÃO BANNERS ================= -->
+      <section class="admin-section hidden" id="tab-banners">
+
+        <h2 class="admin-section-title">Adicionar / Editar Banner</h2>
+
+        <form class="banner-form">
+
+          <label class="file-label">
+            Imagem Desktop
+            <input type="file" name="imageDesktop" class="banner-desktop-input" accept="image/*">
+          </label>
+          <img class="banner-desktop-preview banner-preview" src="" alt="Preview Desktop">
+
+          <label class="file-label">
+            Imagem Mobile
+            <input type="file" name="imageMobile" class="banner-mobile-input" accept="image/*">
+          </label>
+          <img class="banner-mobile-preview banner-preview" src="" alt="Preview Mobile">
+
+          <select name="category" class="banner-category" required>
+            <option value="">Categoria do banner</option>
+            <option value="whey">Whey</option>
+            <option value="creatina">Creatina</option>
+            <option value="pre">Pré-treino</option>
+            <option value="vitaminas">Vitaminas</option>
+            <option value="kits">Kits</option>
+            <option value="barras">Barras</option>
+          </select>
+
+          <input type="number" name="order" class="banner-order" placeholder="Ordem de exibição (ex: 1, 2, 3)" min="1"
+            required>
+
+          <button type="submit">Salvar banner</button>
+
+        </form>
+
+        <h2 class="admin-section-title">Banners cadastrados</h2>
+        <div class="admin-banners"></div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <script type="module" src="../assets/js/admin.js"></script>
+
+</body>
+
+</html>
